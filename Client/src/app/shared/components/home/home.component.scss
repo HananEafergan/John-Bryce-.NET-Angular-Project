@@ -1,0 +1,61 @@
+@keyframes backgroundFade {
+  0% {
+    background-image: url('/assets/images/car1.jpg');
+  }
+
+  30% {
+    background-image: url('/assets/images/car2.jpg');
+  }
+
+  60% {
+    background-image: url('/assets/images/car3.jpg');
+  }
+
+  80% {
+    background-image: url('/assets/images/car4.jpg');
+  }
+
+  90% {
+    background-image: url('/assets/images/car5.jpg');
+  }
+
+  100% {
+    background-image: url('/assets/images/car1.jpg');
+  }
+}
+
+.logo {
+  .logo-icon {
+    max-width: 170px;
+    transform: rotate(-32deg);
+    left: -30%;
+    margin-top: -6%;
+    position: absolute;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.background-container {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  animation: backgroundFade 60s infinite linear;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}

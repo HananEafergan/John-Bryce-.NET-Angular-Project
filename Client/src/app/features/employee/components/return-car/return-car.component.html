@@ -1,0 +1,51 @@
+<div *ngIf="rentalHistory$ | async as rentals; else noRentals" class="return-car-container">
+    <h2 class="title">Return a Rented Car</h2>
+
+    <div class="rental-list">
+        <div *ngFor="let rental of rentals" class="rental-card">
+            <div class="rental-card__details">
+                <span class="label">Customer:</span>
+                <span class="value">{{rental.User?.FullName}} ({{rental.User?.IDNumber}})</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Car:</span>
+                <span class="value">{{rental.Car?.CarType?.Manufacturer}} {{rental.Car?.CarType?.Model}} {{rental.Car?.CarType?.YearOfManufacture}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">License Plate:</span>
+                <span class="value">{{rental.Car?.LicensePlate}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Rent Day:</span>
+                <span class="value">{{rental.StartDate | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Expected Return Date:</span>
+                <span class="value">{{rental.ExpectedReturnDate | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Total Cost Before Late Fees:</span>
+                <span class="value">{{rental.TotalCost | currency:'ILS'}}</span>
+            </div>
+
+            <div class="rental-card__actions">
+                <button *ngIf="rental.Status == 'Active'; else returned" class="return-btn" (click)="returnCar(rental)">
+                    Return Car
+                </button>
+                <ng-template #returned>
+                    <span class="status">{{rental.Status}}</span>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- If no rentals exist -->
+<ng-template #noRentals>
+    <p class="no-rentals">No active rentals available for return.</p>
+</ng-template>

@@ -1,0 +1,41 @@
+<div *ngIf="userRentalHistory$ | async as rentalHistory; else noRentals" class="rental-history-container">
+    <h2 class="title">Rental History</h2>
+
+    <div class="rental-list">
+        <div *ngFor="let rental of rentalHistory" class="rental-card">
+            <div class="rental-card__details">
+                <span class="label">License Plate:</span>
+                <span class="value">{{rental.Car?.LicensePlate}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Car:</span>
+                <span class="value">{{rental.Car?.CarType?.Manufacturer}} {{rental.Car?.CarType?.Model}} {{rental.Car?.CarType?.YearOfManufacture}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Order Date:</span>
+                <span class="value">{{rental.StartDate | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Expected Return Date:</span>
+                <span class="value">{{rental.ExpectedReturnDate | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Actual Return Date:</span>
+                <span class="value">{{rental.ActualReturnDate | date:'dd/MM/yyyy'}}</span>
+            </div>
+
+            <div class="rental-card__details">
+                <span class="label">Total Price (Before Late Fee):</span>
+                <span class="value">{{rental.TotalCost | currency:'ILS'}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noRentals>
+    <p class="no-rentals">You have no rental history yet.</p>
+</ng-template>

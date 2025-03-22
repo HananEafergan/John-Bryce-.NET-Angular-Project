@@ -1,0 +1,19 @@
+<div *ngIf="branches$ | async as branches" class="branch-container">
+    <h2 class="title">Branch Management</h2>
+
+    <div class="branch-list">
+        <app-branch-row *ngFor="let branch of branches" [branch]="branch">
+        </app-branch-row>
+
+        <app-branch-row *ngIf="isAddBranch; else addBranchBtn" 
+        [addBranch]="true"
+        (cancel)="isAddBranch = false">
+        </app-branch-row>
+
+        <ng-template #addBranchBtn>
+            <button class="add-btn" (click)="addBranch()">+ Add Branch</button>
+        </ng-template>
+    </div>
+
+    <div class="error" *ngIf="err$ | async as error">{{error}}</div>
+</div>

@@ -1,0 +1,118 @@
+.branch-row {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 6px;
+    max-width: 600px;
+}
+
+/* Form */
+.branch-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+
+    input {
+        width: 100px;
+        padding: 6px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+        font-size: 14px;
+    }
+
+    button:first-child {
+        background-color: #28a745;
+        color: white;
+    }
+
+    button:nth-child(2) {
+        background-color: #ccc;
+        color: black;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+}
+
+.branch-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 6px 0;
+
+    .name {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .address {
+        flex-grow: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .coords {
+        font-size: 12px;
+        color: #555;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s ease-in-out;
+        font-size: 14px;
+    }
+
+    .edit-btn {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .delete-btn {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .edit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .delete-btn:hover {
+        background-color: #c82333;
+    }
+}

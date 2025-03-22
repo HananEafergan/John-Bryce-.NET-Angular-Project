@@ -1,0 +1,12 @@
+<button class="menu-button" [class.open]="menuOpen" (click)="toggleMenu()">☰</button>
+
+<div class="side-menu" [class.open]="menuOpen">
+  <nav>
+    <ul *ngFor="let route of activeRoutes">
+      <li><a (click)="navigateTo(route.route)">{{route.name}}</a></li>
+    </ul>
+    <ul *ngIf="loggedIn">
+      <li><a (click)="logOut()">Logout</a></li>
+    </ul>
+  </nav>
+</div>

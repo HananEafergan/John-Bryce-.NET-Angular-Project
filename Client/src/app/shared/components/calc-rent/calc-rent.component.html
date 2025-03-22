@@ -1,0 +1,56 @@
+<form *ngIf="calcForm; else loading" [formGroup]="calcForm" (ngSubmit)="calculateRentPrice()" class="rent-form">
+    <h2 class="title">Car Rent Calculator</h2>
+
+    <mat-dialog-content class="content">
+        <div class="date-form">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Start Date</mat-label>
+                <input matInput [min]="today" [matDatepicker]="startDate" formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+                <mat-error *ngIf="calcForm.controls['startDate'].invalid && calcForm.controls['startDate'].touched">
+                    Start date is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>End Date</mat-label>
+                <input matInput [min]="calcForm.controls['startDate'].value" [matDatepicker]="endDate"
+                    formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+                <mat-error *ngIf="calcForm.controls['endDate'].invalid && calcForm.controls['endDate'].touched">
+                    <span *ngIf="calcForm.controls['endDate']?.hasError('matDatepickerMin'); else required">
+                        Start date can't be higher than end date
+                    </span>
+                    <ng-template #required>
+                        End date is required
+                    </ng-template>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="price-container" *ngIf="overallPrice">
+            <h3>Total Price:</h3>
+            <p class="price">₪{{ overallPrice | number:'1.2-2' }}</p>
+            Late return fee: <p class="price">₪{{ lateFee | number:'1.2-2' }}</p>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="actions">
+        <button mat-button class="cancel-btn" (click)="closeDialog()">Cancel</button>
+        <button mat-button class="order-btn" (click)="orderNow()" [disabled]="calcForm.invalid || !overallPrice">Order
+            Now</button>
+        <button mat-flat-button color="primary" class="calculate-btn" type="submit" [disabled]="calcForm.invalid">
+            Calculate
+        </button>
+    </mat-dialog-actions>
+    <div *ngIf="err$ | async as error" class="err-message">{{error}}</div>
+</form>
+
+<ng-template #loading>
+    <div class="loading-container">
+        <mat-spinner></mat-spinner>
+        <p>Loading...</p>
+    </div>
+</ng-template>

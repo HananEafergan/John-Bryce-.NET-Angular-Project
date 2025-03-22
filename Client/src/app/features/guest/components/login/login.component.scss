@@ -1,0 +1,54 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: #f0f0f0;
+  background-image: url('/assets/images/car1.jpg');
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card {
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.login-header {
+  text-align: center;
+  background: #424242;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-button {
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #757575;
+  color: white;
+}
+
+.login-button:hover {
+  background: #616161;
+}
+
+.error {
+  color: red;
+  margin-top: 15px;
+  font-size: 14px;
+}

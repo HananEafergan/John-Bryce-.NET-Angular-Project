@@ -1,0 +1,8 @@
+<header class="header">
+  <span *ngIf="imgSrc">
+    <img class="profile-pic" [src]="imgSrc" alt="">
+  </span>
+    <span (click)="goHome()" class="page-title">
+        <h1>Hello {{fullName}}!</h1>
+    </span>
+</header>  

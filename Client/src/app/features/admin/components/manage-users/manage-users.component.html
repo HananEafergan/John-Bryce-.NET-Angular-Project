@@ -1,0 +1,15 @@
+<div *ngIf="error$ | async as error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="users$ | async as users" class="manage-users-wrapper">
+  
+    <h2 class="section-title">
+      <mat-icon class="icon">group</mat-icon>
+      Manage Users
+    </h2>
+  
+    <app-manage-user-row *ngFor="let user of users" [user]="user"></app-manage-user-row>
+  
+  </div>
+  

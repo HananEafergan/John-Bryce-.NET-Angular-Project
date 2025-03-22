@@ -1,0 +1,6 @@
+<div *ngIf="rentals$ | async as rentals">
+    <app-manage-rental-row
+    *ngFor="let rental of rentals"
+    [rental]="rental"
+    ></app-manage-rental-row>
+</div>

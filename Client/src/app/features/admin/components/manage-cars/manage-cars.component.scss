@@ -1,0 +1,28 @@
+.manage-cars-wrapper {
+    padding: 16px 24px;
+}
+
+.section-title {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: #ffffff;
+
+    .icon {
+        margin-right: 8px;
+        color: #2a2a3d;
+    }
+}
+
+button {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-self: center;
+}

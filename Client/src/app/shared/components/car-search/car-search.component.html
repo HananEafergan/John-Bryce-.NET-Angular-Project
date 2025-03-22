@@ -1,0 +1,54 @@
+<input class="search-box" type="search" placeholder="Filter by free text"
+    (input)="filterCarArr($any($event.target)?.value)">
+
+<div class="search-container">
+    <select #searchField class="search-dropdown">
+        <option value="GearType">Gear Type</option>
+        <option value="YearOfManufacture">Year</option>
+        <option value="Manufacturer">Manufacturer</option>
+        <option value="Model">Model</option>
+    </select>
+
+    <input class="search-box field-search" type="search" placeholder="Filter by selected field"
+        (input)="filterByField($any($event.target)?.value, searchField.value)">
+
+</div>
+
+<div *ngIf="cars$ | async as carArr; else loadingCars" class="car-container">
+    <div *ngFor="let car of carArr; last as last" class="car-card">
+        <div class="car-card__label-value">
+            <label for="Manufacturer">Manufacturer</label>
+            <h3>{{car.CarType.Manufacturer}}</h3>
+        </div>
+        <div class="car-card__label-value">
+            <label for="Model">Model</label>
+            <h3>{{car.CarType.Model}} {{car.CarType.YearOfManufacture}}</h3>
+        </div>
+        <div class="car-card__label-value">
+            <label for="GearType">Gear Type</label>
+            <h3>{{car.CarType.GearType}}</h3>
+        </div>
+        <div class="car-card__label-value">
+            <label for="miles">Miles</label>
+            <h3>{{car.CurrentMileage}}</h3>
+        </div>
+        <img style="width: 18rem" [src]="car.Image" [alt]="car.CarType.Manufacturer">
+        <div class="car-card__label-value">
+            <label for="dailyRate">Daily Rate</label>
+            <h3>{{car.CarType.DailyRate | currency : 'ILS' : 'symbol'}}</h3>
+        </div>
+        <div class="car-card__label-value">
+            <h3>{{car.IsAvailable ? 'Available' : 'Not Available'}}</h3>
+        </div>
+
+        <button (click)="openCarRentCalculation(car)">Select Car</button>
+    </div>
+</div>
+
+<div class="liked-cars-container" *ngIf="likedCars$ | async as likedCars">
+    <div class="liked-car" *ngFor="let likedCar of likedCars">
+        {{likedCar.CarType.Manufacturer}} {{likedCar.CarType.Model}} {{likedCar.CarType.YearOfManufacture}}
+    </div>
+</div>
+
+<ng-template #loadingCars>Loading cars...</ng-template>

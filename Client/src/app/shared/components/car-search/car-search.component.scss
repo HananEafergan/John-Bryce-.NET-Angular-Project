@@ -1,0 +1,65 @@
+:host {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-box {
+    width: 42%;
+    height: 30px;
+    padding: 5px;
+}
+
+.field-search {
+    width: 34.3% !important
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.search-dropdown {
+    height: 36px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.car-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-gap: 1rem;
+
+    .car-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(.5rem);
+        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        padding: 1rem;
+
+        .car-card__label-value {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.liked-cars-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    .liked-car {
+        border: 1px solid black;
+        border-radius: 30px;
+        padding: 10px;
+        display: block;
+        width: 10%;
+        text-align: center;
+    }
+}

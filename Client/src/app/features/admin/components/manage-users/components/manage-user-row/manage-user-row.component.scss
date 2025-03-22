@@ -1,0 +1,54 @@
+.user-form-wrapper {
+    color: #ffffff;
+    padding: 24px;
+  }
+  
+  .user-form-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    background-color: #2a2a3d;
+    padding: 24px;
+    border-radius: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  
+    .mat-form-field-label {
+      color: #ccc !important;
+    }
+  
+    .mat-input-element,
+    .mat-select-value {
+      color: #fff;
+    }
+  
+    mat-error {
+      font-size: 0.75rem;
+      color: #ff6b6b;
+    }
+  }
+  
+  .image-upload-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    grid-column: 1 / -1;
+  }
+  
+  .preview-image {
+    max-width: 200px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  }
+  
+  .user-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+  }

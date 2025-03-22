@@ -1,0 +1,25 @@
+<div *ngIf="error$ | async as error">
+  {{ error }}
+</div>
+
+<div class="manage-cars-wrapper">
+  <h2 class="section-title">
+    <mat-icon class="icon">directions_car</mat-icon>
+    Manage Cars
+  </h2>
+
+  <div class="add-button-wrapper" *ngIf="!isAddNewCar">
+    <button mat-raised-button color="accent" (click)="toggleNewCar()">
+      <mat-icon>add_circle_outline</mat-icon>
+      Add New Car
+    </button>
+  </div>
+
+  <app-manage-car-row *ngIf="isAddNewCar" [addCar]="true" (toggleNewCar)="toggleNewCar()"></app-manage-car-row>
+
+  <div *ngIf="cars$ | async as cars">
+    <div *ngFor="let car of cars">
+      <app-manage-car-row [car]="car"></app-manage-car-row>
+    </div>
+  </div>
+</div>

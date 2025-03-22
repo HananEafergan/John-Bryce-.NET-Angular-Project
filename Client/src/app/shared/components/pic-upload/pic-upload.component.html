@@ -1,0 +1,5 @@
+<div class="upload-container">
+    <label *ngIf="label">{{ label }}</label>
+    <input type="file" accept=".png, .jpg, .jpeg" [multiple]="false" (input)="handleFile($any($event.target)?.files)">
+    <!-- <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div> -->
+</div>

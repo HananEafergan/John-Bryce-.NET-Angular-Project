@@ -1,0 +1,23 @@
+# === Angular ===
+node_modules/
+dist/
+.angular/
+coverage/
+*.log
+
+# === .NET ===
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# === OS / IDE files ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Environment ===
+.env

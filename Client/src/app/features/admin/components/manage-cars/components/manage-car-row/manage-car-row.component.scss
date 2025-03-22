@@ -1,0 +1,79 @@
+.car-form-wrapper {
+    color: #ffffff;
+    padding: 32px;
+  }
+  
+  .form-card {
+    background-color: #2a2a3d;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    color: #fff;
+  
+    .mat-form-field-outline {
+      color: #ccc;
+      border-color: #888;
+    }
+  
+    .mat-form-field-label {
+      color: #ccc !important;
+    }
+  
+    .mat-input-element,
+    .mat-select-value {
+      color: #fff;
+    }
+  
+    mat-error {
+      font-size: 0.75rem;
+      color: #ff6b6b;
+      margin-top: -4px;
+    }
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 12px;
+  
+    mat-form-field {
+      flex: 1;
+      min-width: 220px;
+    }
+  
+    &.align-start {
+      align-items: flex-start;
+    }
+  }
+  
+  .car-image {
+    width: 18rem;
+    border-radius: 4px;
+    margin-left: 16px;
+    margin-top: 4px;
+    object-fit: cover;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .toggles {
+    display: flex;
+    gap: 32px;
+    margin: 20px 0 10px 0;
+  
+    mat-slide-toggle {
+      color: #fff;
+    }
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+  }

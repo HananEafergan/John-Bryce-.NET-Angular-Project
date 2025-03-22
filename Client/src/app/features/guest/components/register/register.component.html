@@ -1,0 +1,74 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div>
+    <label>Full Name</label>
+    <input type="text" formControlName="fullName">
+    <div *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched">
+      Name is required (min 3 characters).
+    </div>
+  </div>
+
+  <div>
+    <label>ID Number</label>
+    <input type="text" formControlName="idNumber">
+    <div *ngIf="registerForm.get('idNumber')?.invalid && registerForm.get('idNumber')?.touched">
+      Valid ID Number is required (digits only).
+    </div>
+  </div>
+
+  <div>
+    <label>Username</label>
+    <input type="text" formControlName="username">
+    <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+      Username is required (min 4 characters).
+    </div>
+  </div>
+
+  <div>
+    <label>Birth Date</label>
+    <input type="date" formControlName="birthDate">
+    <div *ngIf="registerForm.get('birthDate')?.invalid && registerForm.get('birthDate')?.touched">
+      Birth Date is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Gender</label>
+    <select formControlName="gender">
+      <option value="" disabled>Select Gender</option>
+      <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+    </select>
+    <div *ngIf="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched">
+      Gender selection is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+      Valid Email is required.
+    </div>
+  </div>
+
+  <div>
+    <label>Password</label>
+    <input type="password" formControlName="password">
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+      Password must be at least 6 characters.
+    </div>
+  </div>
+
+  <div>
+    <label>Confirm Password</label>
+    <input type="password" formControlName="confirmPassword">
+    <div *ngIf="passwordMismatch && registerForm.get('confirmPassword')?.touched">
+      Passwords do not match.
+    </div>
+  </div>
+
+  <app-pic-upload 
+    (stringOuput)="handleStringOutput($event)">
+  </app-pic-upload>
+
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>
